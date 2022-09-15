@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="login-page-container">
-            <form class="login-form-container">
+            <form class="login-form-container" onSubmit="onLoginClicked(event)">
                 <label for="username">Username</label>
                 <input type="text" placeholder="Username" id="username" />
                 <label for="password">Password</label>
@@ -14,5 +14,6 @@
                 <button type="submit" class="login-button-style">Login</button>
             </form>
         </div>
+        <script src="index.js"></script>
     </body>
 </html>

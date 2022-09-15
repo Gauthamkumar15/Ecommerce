@@ -1,13 +1,23 @@
-let users = [];
-let userName = document.getElementById("username").value;
-let password = document.getElementById("password").value;
+let userArray = localStorage.getItem("users");
+console.log(userArray);
 
-
-function onLoginClicked(){
-  let userCredentials = {
-    userName : userName,
-    password : password
-  };
-  users.push(userCredentials);
-  console.log(users);
+if(userArray !== undefined){
+  userArray = JSON.parse(userArray);
+  console.log(userArray);
 }
+else{
+  userArray = [];
+}
+
+let userName = document.getElementById("username");
+let password = document.getElementById("password");
+
+function onLoginClicked(event){
+  event.preventDefault();
+  userArray.push({
+    userName : userName.value,
+    password : password.value
+  });
+  localStorage.setItem("users",JSON.stringify(userArray));
+}
+
